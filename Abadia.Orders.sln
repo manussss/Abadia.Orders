@@ -7,11 +7,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{39F876ED-6A0
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abadia.Orders.Domain", "src\Abadia.Orders.Domain\Abadia.Orders.Domain.csproj", "{33C949BC-FDC6-4B80-A78E-2D6FD5B3C751}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abadia.Orders.API", "src\Abadia.Orders.API\Abadia.Orders.API.csproj", "{4966A3CD-817D-4B0A-8F9D-AF3D5E06FFC7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abadia.Orders.API", "src\Abadia.Orders.API\Abadia.Orders.API.csproj", "{4966A3CD-817D-4B0A-8F9D-AF3D5E06FFC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abadia.Orders.Infra", "src\Abadia.Orders.Infra\Abadia.Orders.Infra.csproj", "{AA5E8CFB-55A4-4144-A544-834D0FB063F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abadia.Orders.Infra", "src\Abadia.Orders.Infra\Abadia.Orders.Infra.csproj", "{AA5E8CFB-55A4-4144-A544-834D0FB063F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abadia.Orders.Infra.CrossCutting", "src\Abadia.Orders.Infra.CrossCutting\Abadia.Orders.Infra.CrossCutting.csproj", "{2FB5DC2B-86BF-4AD6-ACFD-B6249112E9E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abadia.Orders.Infra.CrossCutting", "src\Abadia.Orders.Infra.CrossCutting\Abadia.Orders.Infra.CrossCutting.csproj", "{2FB5DC2B-86BF-4AD6-ACFD-B6249112E9E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abadia.Orders.Application", "src\Abadia.Orders.Application\Abadia.Orders.Application.csproj", "{DFBBB112-CA7C-4FA9-949F-2C330EC53E71}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{2FB5DC2B-86BF-4AD6-ACFD-B6249112E9E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FB5DC2B-86BF-4AD6-ACFD-B6249112E9E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FB5DC2B-86BF-4AD6-ACFD-B6249112E9E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFBBB112-CA7C-4FA9-949F-2C330EC53E71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFBBB112-CA7C-4FA9-949F-2C330EC53E71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFBBB112-CA7C-4FA9-949F-2C330EC53E71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFBBB112-CA7C-4FA9-949F-2C330EC53E71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +50,7 @@ Global
 		{4966A3CD-817D-4B0A-8F9D-AF3D5E06FFC7} = {39F876ED-6A0D-4489-A86E-73C153712D0A}
 		{AA5E8CFB-55A4-4144-A544-834D0FB063F3} = {39F876ED-6A0D-4489-A86E-73C153712D0A}
 		{2FB5DC2B-86BF-4AD6-ACFD-B6249112E9E4} = {39F876ED-6A0D-4489-A86E-73C153712D0A}
+		{DFBBB112-CA7C-4FA9-949F-2C330EC53E71} = {39F876ED-6A0D-4489-A86E-73C153712D0A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BFBF9B82-4576-439F-84EC-ADD9E938767C}
