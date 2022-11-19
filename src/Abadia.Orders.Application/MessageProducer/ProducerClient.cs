@@ -27,6 +27,7 @@ public class ProducerClient<T> : IProducerClient<T>
         };
     }
 
+    //TODO ASYNC
     public void SendXlsMessage(MessageContract<T> messageContract)
     {
         var serializedMessage = JsonConvert.SerializeObject(messageContract);
