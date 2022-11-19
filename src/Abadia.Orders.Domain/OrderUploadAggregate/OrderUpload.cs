@@ -14,10 +14,13 @@ public class OrderUpload : Entity
 
     public OrderUpload(
         string fileName, 
-        string contentType)
+        string contentType,
+        string user)
     {
         FileName = fileName;
         ContentType = contentType;
+        User = user;
+        ClientId = Guid.NewGuid();
 
         _orders = new();
     }
@@ -26,9 +29,8 @@ public class OrderUpload : Entity
 
     //public void AddOrder(Order order) => _orders.Add(order);
 
-    public void SetUser(string user, Guid clientId)
-    {
-        User = user;
-        ClientId = clientId;
-    }
+    //public void SetClientd(Guid clientId)
+    //{
+    //    ClientId = clientId;
+    //}
 }

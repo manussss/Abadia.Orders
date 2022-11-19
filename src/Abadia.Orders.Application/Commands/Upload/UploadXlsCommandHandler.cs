@@ -26,7 +26,7 @@ public class UploadXlsCommandHandler : IRequestHandler<UploadXlsCommand, Respons
         response.SetResponse();
 
         //TODO VALIDATE
-        var orderUpload = new OrderUpload(request.UploadFile.Name, request.UploadFile.ContentType);
+        var orderUpload = new OrderUpload(request.UploadFile.Name, request.UploadFile.ContentType, "");
         await _orderUploadRepository.CreateAsync(orderUpload);
 
         SendMessage(orderUpload.Id);
