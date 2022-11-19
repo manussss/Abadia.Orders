@@ -16,6 +16,7 @@ public class Program
         builder.Services.AddMediator();
         builder.Services.AddApiConfiguration();
         builder.Services.AddSwagger();
+        builder.Services.AddServices();
 
         var app = builder.Build();
         app.UseApiConfiguration(app.Environment);
