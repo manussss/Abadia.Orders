@@ -18,11 +18,13 @@ public class OrderUpload : Entity
     {
         FileName = fileName;
         ContentType = contentType;
+
+        _orders = new();
     }
 
-    public void AddOrder(IEnumerable<Order> orders) => _orders.AddRange(orders);
+    //public void AddOrder(IEnumerable<Order> orders) => _orders.AddRange(orders);
 
-    public void AddOrder(Order order) => _orders.Add(order);
+    //public void AddOrder(Order order) => _orders.Add(order);
 
     public void SetUser(string user, Guid clientId)
     {
