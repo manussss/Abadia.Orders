@@ -6,11 +6,17 @@ namespace Abadia.Orders.Infra.Data;
 
 public class OrderContext : DbContext
 {
-    public DbSet<Order> Order { get; set; }
     public DbSet<OrderUpload> OrderUpload { get; set; }
+    public DbSet<Order> Order { get; set; }
+    public DbSet<OrderItem> OrderItem { get; set; }
 
     public OrderContext(DbContextOptions<OrderContext> options) : base(options)
     {
+    }
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        builder.ApplyConfigurationsFromAssembly(typeof(OrderContext).Assembly);
     }
 
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
