@@ -1,8 +1,8 @@
 ﻿using Abadia.Orders.Application.Contracts;
 using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
 using RabbitMQ.Client;
 using System.Text;
+using System.Text.Json;
 
 namespace Abadia.Orders.Application.MessageProducer;
 
@@ -28,9 +28,10 @@ public class ProducerClient<T> : IProducerClient<T>
     }
 
     //TODO ASYNC
+    //TODO REFACTOR
     public void SendXlsMessage(MessageContract<T> messageContract)
     {
-        var serializedMessage = JsonConvert.SerializeObject(messageContract);
+        var serializedMessage = JsonSerializer.Serialize(messageContract);
         var messageBytes = Encoding.UTF8.GetBytes(serializedMessage);
 
         var queue = _configuration.GetSection("RabbitMq:XlsQueueName").Value;
