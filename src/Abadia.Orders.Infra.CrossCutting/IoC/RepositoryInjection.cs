@@ -1,4 +1,4 @@
-﻿using Abadia.Orders.Domain.Interfaces;
+﻿using Abadia.Orders.Domain.OrderUploadAggregate;
 using Abadia.Orders.Infra.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 

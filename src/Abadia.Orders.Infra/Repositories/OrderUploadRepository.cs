@@ -1,5 +1,4 @@
-﻿using Abadia.Orders.Domain.Interfaces;
-using Abadia.Orders.Domain.OrderUploadAggregate;
+﻿using Abadia.Orders.Domain.OrderUploadAggregate;
 using Abadia.Orders.Infra.Data;
 
 namespace Abadia.Orders.Infra.Repositories;

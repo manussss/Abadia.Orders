@@ -1,6 +1,5 @@
 ﻿using Abadia.Orders.Application.Contracts;
 using Abadia.Orders.Application.MessageProducer;
-using Abadia.Orders.Domain.Interfaces;
 using Abadia.Orders.Domain.OrderUploadAggregate;
 using Abadia.Orders.Shared.IntegrationEvents;
 using MediatR;
