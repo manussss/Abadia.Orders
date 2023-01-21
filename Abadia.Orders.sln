@@ -17,7 +17,20 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abadia.Orders.Application",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abadia.Orders.Shared", "src\Abadia.Orders.Shared\Abadia.Orders.Shared.csproj", "{14E44AB6-72C9-43A5-B6FD-09E4B3D756F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abadia.Orders.Worker.XlsConverter", "src\Abadia.Orders.Worker.XlsConverter\Abadia.Orders.Worker.XlsConverter.csproj", "{0551058D-5526-464E-A2FC-0E5693EA64BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abadia.Orders.Worker.XlsConverter", "src\Abadia.Orders.Worker.XlsConverter\Abadia.Orders.Worker.XlsConverter.csproj", "{0551058D-5526-464E-A2FC-0E5693EA64BB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nginx", "nginx", "{0FA33DCF-6FAB-441F-9F17-467046F873F5}"
+	ProjectSection(SolutionItems) = preProject
+		nginx\Dockerfile = nginx\Dockerfile
+		nginx\proxy.conf = nginx\proxy.conf
+		nginx\reverse-proxy.conf = nginx\reverse-proxy.conf
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{3350143D-6156-4355-A973-D2D17B6AD6E3}"
+	ProjectSection(SolutionItems) = preProject
+		docker\docker-compose.override.yaml = docker\docker-compose.override.yaml
+		docker\docker-compose.yaml = docker\docker-compose.yaml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

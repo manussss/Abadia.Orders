@@ -1,0 +1,26 @@
+version: '3.3'
+
+networks:
+  abadia-orders-network:
+    driver: 'bridge'
+
+services:
+  abadia-orders-api:
+    image: abadia-orders-api
+    container_name: abadia-orders-api
+    build:
+      context: /mnt/c/Users/branq/documents/workspace/OrderProject_Azure/Abadia.Orders/
+      dockerfile: src/Abadia.Orders.API/Dockerfile
+    depends_on:
+      - reverse-proxy
+    networks:
+      - abadia-orders-network
+
+  reverse-proxy:
+    image: reverse-proxy
+    container_name: reverse-proxy
+    build:
+      context: /mnt/c/Users/branq/documents/workspace/OrderProject_Azure/Abadia.Orders/
+      dockerfile: nginx/Dockerfile
+    networks:
+      - abadia-orders-network
