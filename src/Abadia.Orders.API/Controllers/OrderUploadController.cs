@@ -1,4 +1,5 @@
 ﻿using Abadia.Orders.Application.Commands.Upload;
+using Abadia.Orders.Application.Contracts;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,8 +18,10 @@ public class OrderUploadController : ControllerBase
     }
 
     //TODO ADD FEATURE GATE
-    //TODO ADD PRODUCERESPONSETYPE
-    [HttpPost]
+    [HttpPost("upload/xls")]
+    [ProducesResponseType(typeof(ResponseContract), StatusCodes.Status201Created)]
+    [ProducesResponseType(typeof(ResponseContract), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(ResponseContract), StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> UploadOrder(IFormFile file)
     {
         var result = await _mediator.Send(new UploadXlsCommand(file));
