@@ -24,6 +24,7 @@ public class ProducerClient<T> : IProducerClient<T>
             VirtualHost = _configuration.GetSection("RabbitMq:VirtualHost").Value,
             AutomaticRecoveryEnabled = true,
             RequestedHeartbeat = TimeSpan.FromSeconds(300),
+            DispatchConsumersAsync = true
         };
     }
 
