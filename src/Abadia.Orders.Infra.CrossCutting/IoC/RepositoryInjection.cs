@@ -6,8 +6,10 @@ namespace Abadia.Orders.Infra.CrossCutting.IoC;
 
 public static class RepositoryInjection
 {
-    public static void AddRepositories(this IServiceCollection services)
+    public static IServiceCollection AddRepositories(this IServiceCollection services)
     {
         services.AddTransient<IOrderUploadRepository, OrderUploadRepository>();
+
+        return services;
     }
 }
