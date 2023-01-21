@@ -1,4 +1,6 @@
 ﻿using Abadia.Orders.Application.Contracts;
+using Abadia.Orders.Application.Validators.Commands;
+using FluentValidation.Results;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 
@@ -13,5 +15,5 @@ public class UploadXlsCommand : IRequest<ResponseContract>
         UploadFile = uploadFile;
     }
 
-    //TODO VALIDATIONRESULT
+    public ValidationResult Validate() => new UploadXlsCommandValidator().Validate(this);
 }
