@@ -1,6 +1,4 @@
-﻿using MediatR;
-
-namespace Abadia.Orders.Worker.XlsConverter.Application;
+﻿namespace Abadia.Orders.Worker.XlsConverter.Application;
 
 public class ConversorCommand : IRequest<bool>
 {

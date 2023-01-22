@@ -1,6 +1,7 @@
 using Abadia.Orders.Infra.CrossCutting.IoC;
+using Abadia.Orders.Infra.Messaging;
 using Abadia.Orders.Worker.XlsConverter;
-using MediatR;
+using Abadia.Orders.Worker.XlsConverter.Messaging;
 using System.Reflection;
 
 IHost host = Host.CreateDefaultBuilder(args)
@@ -10,6 +11,7 @@ IHost host = Host.CreateDefaultBuilder(args)
         services.AddHostedService<Worker>();
         services.AddDatabase(context.Configuration);
         services.AddMediatR(Assembly.GetExecutingAssembly());
+        services.AddTransient<ISubscriber, Subscriber>();
     })
     .Build();
 

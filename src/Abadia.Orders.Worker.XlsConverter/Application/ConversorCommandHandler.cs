@@ -1,5 +1,4 @@
 ﻿using Abadia.Orders.Domain.OrderUploadAggregate;
-using MediatR;
 
 namespace Abadia.Orders.Worker.XlsConverter.Application;
 
