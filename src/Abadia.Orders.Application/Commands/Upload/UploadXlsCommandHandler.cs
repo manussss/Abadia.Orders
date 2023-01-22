@@ -1,5 +1,4 @@
 ﻿using Abadia.Orders.Application.Contracts;
-using Abadia.Orders.Application.MessageProducer;
 using Abadia.Orders.Domain.OrderUploadAggregate;
 using Abadia.Orders.Shared.IntegrationEvents;
 using MediatR;
@@ -11,17 +10,17 @@ namespace Abadia.Orders.Application.Commands.Upload;
 public class UploadXlsCommandHandler : IRequestHandler<UploadXlsCommand, ResponseContract>
 {
     private readonly IOrderUploadRepository _orderUploadRepository;
-    private readonly IProducerClient<UploadXlsFinishedIntegrationEvent> _producerClient;
     private readonly ILogger<UploadXlsCommandHandler> _logger;
+    private readonly Domain.Messaging.IPublisher _publisherCommand;
 
     public UploadXlsCommandHandler(
         IOrderUploadRepository orderUploadRepository,
-        IProducerClient<UploadXlsFinishedIntegrationEvent> producerClient,
-        ILogger<UploadXlsCommandHandler> logger)
+        ILogger<UploadXlsCommandHandler> logger,
+        Domain.Messaging.IPublisher publisherCommand)
     {
         _orderUploadRepository = orderUploadRepository;
-        _producerClient = producerClient;
         _logger = logger;
+        _publisherCommand = publisherCommand;
     }
 
     public async Task<ResponseContract> Handle(UploadXlsCommand request, CancellationToken cancellationToken)
@@ -58,7 +57,7 @@ public class UploadXlsCommandHandler : IRequestHandler<UploadXlsCommand, Respons
 
         var integrationEvent = new UploadXlsFinishedIntegrationEvent(orderUploadId);
         var message = new MessageContract<UploadXlsFinishedIntegrationEvent>(integrationEvent);
-        
-        _producerClient.SendXlsMessage(message);
+
+        _publisherCommand.Publish(message);
     }
 }
