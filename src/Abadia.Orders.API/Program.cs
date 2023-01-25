@@ -1,3 +1,4 @@
+using Abadia.Orders.API.ApiConfig;
 using Abadia.Orders.Infra.CrossCutting.IoC;
 
 namespace Abadia.Orders.API;
