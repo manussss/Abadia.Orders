@@ -17,6 +17,7 @@ public class Program
         builder.Services.AddMediator();
         builder.Services.AddApiConfiguration();
         builder.Services.AddSwagger();
+        builder.Services.AddSerilog(builder.Configuration);
 
         builder.Services.AddPublisher(builder.Configuration);
 

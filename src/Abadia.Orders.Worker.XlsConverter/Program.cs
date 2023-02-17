@@ -12,6 +12,7 @@ IHost host = Host.CreateDefaultBuilder(args)
         services.AddDatabase(context.Configuration);
         services.AddMediatR(Assembly.GetExecutingAssembly());
         services.AddTransient<ISubscriber, Subscriber>();
+        services.AddSerilog(context.Configuration);
     })
     .Build();
 

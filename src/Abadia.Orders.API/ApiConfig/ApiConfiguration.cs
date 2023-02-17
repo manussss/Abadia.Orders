@@ -1,4 +1,5 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using Abadia.Orders.API.Middlewares;
+using Microsoft.OpenApi.Models;
 
 namespace Abadia.Orders.API.ApiConfig;
 
@@ -47,6 +48,7 @@ public static class ApiConfiguration
         app.UseHttpsRedirection();
         app.UseApiVersioning();
         app.UseAuthorization();
+        app.UseMiddleware<RequestSerilLogMiddleware>();
         app.MapControllers();
     }
 }
