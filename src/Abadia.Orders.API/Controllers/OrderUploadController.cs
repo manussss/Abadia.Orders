@@ -1,6 +1,7 @@
 ﻿using Abadia.Orders.Application.Commands.Upload;
 using Abadia.Orders.Application.Contracts;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Abadia.Orders.API.Controllers;
@@ -18,6 +19,7 @@ public class OrderUploadController : ControllerBase
     }
 
     //TODO ADD FEATURE GATE
+    [Authorize(AuthenticationSchemes = "Bearer")]
     [HttpPost("upload/xls")]
     [ProducesResponseType(typeof(ResponseContract), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ResponseContract), StatusCodes.Status400BadRequest)]
