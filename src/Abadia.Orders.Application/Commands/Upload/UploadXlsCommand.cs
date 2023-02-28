@@ -1,7 +1,5 @@
-﻿using Abadia.Orders.Application.Contracts;
-using Abadia.Orders.Application.Validators.Commands;
+﻿using Abadia.Orders.Application.Validators.Commands;
 using FluentValidation.Results;
-using MediatR;
 using Microsoft.AspNetCore.Http;
 
 namespace Abadia.Orders.Application.Commands.Upload;

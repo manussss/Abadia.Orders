@@ -1,9 +1,5 @@
-﻿using Abadia.Orders.Application.Contracts;
-using Abadia.Orders.Domain.OrderUploadAggregate;
+﻿using Abadia.Orders.Domain.OrderUploadAggregate;
 using Abadia.Orders.Shared.IntegrationEvents;
-using MediatR;
-using Microsoft.Extensions.Logging;
-using System.Net;
 
 namespace Abadia.Orders.Application.Commands.Upload;
 
