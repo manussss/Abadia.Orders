@@ -18,7 +18,7 @@ public class Program
         builder.Services.AddApiConfiguration();
         builder.Services.AddSwagger();
         builder.Services.AddSerilog(builder.Configuration);
-
+        builder.Services.AddAuthentication(builder.Configuration);
         builder.Services.AddPublisher(builder.Configuration);
 
         var app = builder.Build();
