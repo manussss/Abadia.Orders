@@ -4,6 +4,7 @@ using Abadia.Orders.Infra.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Abadia.Orders.Infra.Migrations
 {
     [DbContext(typeof(OrderContext))]
-    partial class OrderContextModelSnapshot : ModelSnapshot
+    [Migration("20230218120421_CreateIdentityTables")]
+    partial class CreateIdentityTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -66,7 +68,7 @@ namespace Abadia.Orders.Infra.Migrations
 
                     b.HasIndex("OrderUploadId");
 
-                    b.ToTable("Order", (string)null);
+                    b.ToTable("Order");
                 });
 
             modelBuilder.Entity("Abadia.Orders.Domain.OrdersAggregate.OrderItem", b =>
@@ -104,7 +106,7 @@ namespace Abadia.Orders.Infra.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("OrderItem", (string)null);
+                    b.ToTable("OrderItem");
                 });
 
             modelBuilder.Entity("Abadia.Orders.Domain.OrderUploadAggregate.OrderUpload", b =>
@@ -143,7 +145,7 @@ namespace Abadia.Orders.Infra.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("OrderUpload", (string)null);
+                    b.ToTable("OrderUpload");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

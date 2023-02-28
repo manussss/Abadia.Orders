@@ -1,10 +1,13 @@
 ﻿using Abadia.Orders.Domain.OrdersAggregate;
 using Abadia.Orders.Domain.OrderUploadAggregate;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Abadia.Orders.Infra.Data;
 
-public class OrderContext : DbContext
+public class OrderContext : IdentityDbContext<IdentityUser>
 {
     public DbSet<OrderUpload> OrderUpload { get; set; }
     public DbSet<Order> Order { get; set; }
@@ -17,6 +20,8 @@ public class OrderContext : DbContext
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.ApplyConfigurationsFromAssembly(typeof(OrderContext).Assembly);
+
+        base.OnModelCreating(builder);
     }
 
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
