@@ -1,5 +1,9 @@
 ﻿using Abadia.Orders.Domain.OrderUploadAggregate;
 using Abadia.Orders.Shared.IntegrationEvents;
+using MediatR;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+using System.Net;
 
 namespace Abadia.Orders.Application.Commands.Upload;
 
@@ -37,7 +41,7 @@ public class UploadXlsCommandHandler : IRequestHandler<UploadXlsCommand, Respons
             return response;
         }
 
-        var orderUpload = new OrderUpload(request.UploadFile.Name, request.UploadFile.ContentType, "");
+        var orderUpload = new OrderUpload(request.UploadFile.Name, request.UploadFile.ContentType, "", GetFileBytes(request.UploadFile));
         await _orderUploadRepository.CreateAsync(orderUpload);
         
         _logger.LogInformation("Created file: {name} with OrderUploadId: {id}", request.UploadFile.FileName, orderUpload.Id);
@@ -45,6 +49,14 @@ public class UploadXlsCommandHandler : IRequestHandler<UploadXlsCommand, Respons
         SendMessage(orderUpload.Id);
 
         return response;
+    }
+
+    private static byte[] GetFileBytes(IFormFile file)
+    {
+        var stream = new MemoryStream((int)file.Length);
+        file.CopyTo(stream);
+        
+        return stream.ToArray();
     }
 
     private void SendMessage(Guid orderUploadId)

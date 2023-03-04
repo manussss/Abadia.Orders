@@ -1,7 +1,7 @@
 ﻿namespace Abadia.Orders.Domain.OrdersAggregate.Enums;
 
-public enum EnumOrderProduct
+public enum EnumOrderItemProduct
 {
-    Debit = 0,
-    Credit = 1,
+    Car = 0,
+    Motorcycle = 1
 }

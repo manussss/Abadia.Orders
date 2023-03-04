@@ -8,29 +8,21 @@ public class OrderUpload : Entity
     public string FileName { get; private set; }
     public string ContentType { get; private set; }
     public string User { get; private set; }
-    public Guid ClientId { get; private set; }
+    public byte[] File { get; private set; }
     public IReadOnlyCollection<Order> Orders => _orders;
     private readonly List<Order> _orders;
 
     public OrderUpload(
-        string fileName, 
+        string fileName,
         string contentType,
-        string user)
+        string user,
+        byte[] file)
     {
         FileName = fileName;
         ContentType = contentType;
         User = user;
-        ClientId = Guid.NewGuid();
+        File = file;
 
         _orders = new();
     }
-
-    //public void AddOrder(IEnumerable<Order> orders) => _orders.AddRange(orders);
-
-    //public void AddOrder(Order order) => _orders.Add(order);
-
-    //public void SetClientd(Guid clientId)
-    //{
-    //    ClientId = clientId;
-    //}
 }
