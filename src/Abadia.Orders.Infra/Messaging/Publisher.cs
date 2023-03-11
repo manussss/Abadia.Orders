@@ -33,6 +33,8 @@ public class Publisher : IPublisher
 
         _connection = _connectionFactory.CreateConnection();
         _channel = _connection.CreateModel();
+
+        ConfigureChannel();
     }
 
 
@@ -40,8 +42,6 @@ public class Publisher : IPublisher
     {
         var serializedMessage = JsonSerializer.Serialize(message);
         var messageBytes = Encoding.UTF8.GetBytes(serializedMessage);
-
-        ConfigureChannel();
 
         _channel.BasicPublish(_exchange, _routingKey, null, messageBytes);
     }
