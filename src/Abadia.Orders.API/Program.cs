@@ -20,8 +20,14 @@ public class Program
         builder.Services.AddSerilog(builder.Configuration);
         builder.Services.AddAuthentication(builder.Configuration);
         builder.Services.AddPublisher(builder.Configuration);
+        //builder.Services.AddMemoryCache();
+        builder.Services.AddStackExchangeRedisCache(options =>
+        {
+            options.Configuration = "localhost:6379";
+        });
 
         var app = builder.Build();
+
         app.UseApiConfiguration(app.Environment);
         app.Run();
     }

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Abadia.Orders.API.ApiConfig;
 
@@ -64,6 +65,11 @@ public static class ApiConfiguration
         {
             options.GroupNameFormat = "'v'VVV";
             options.SubstituteApiVersionInUrl = true;
+        });
+
+        services.AddControllers().AddJsonOptions(options =>
+        {
+            options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
         });
     }
 

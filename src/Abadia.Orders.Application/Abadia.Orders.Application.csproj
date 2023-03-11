@@ -7,11 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.123" />
     <PackageReference Include="FluentValidation" Version="11.4.0" />
     <PackageReference Include="MediatR" Version="11.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="6.0.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.21.0" />
@@ -21,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Abadia.Orders.Domain\Abadia.Orders.Domain.csproj" />
+    <ProjectReference Include="..\Abadia.Orders.Infra\Abadia.Orders.Infra.csproj" />
     <ProjectReference Include="..\Abadia.Orders.Shared\Abadia.Orders.Shared.csproj" />
   </ItemGroup>
 
